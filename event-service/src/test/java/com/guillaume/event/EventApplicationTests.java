@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = EventApplication.class)
-@WebAppConfiguration
 public class EventApplicationTests {
 
 	@Autowired
