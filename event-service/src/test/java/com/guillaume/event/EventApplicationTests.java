@@ -1,19 +1,21 @@
 package com.guillaume.event;
 
 import com.guillaume.event.db.Event;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.time.LocalDateTime;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = EventApplication.class)
+@ActiveProfiles("test")
 public class EventApplicationTests {
 
 	@Autowired
@@ -22,7 +24,12 @@ public class EventApplicationTests {
 	private EventService eventService;
 
 	@Before
-	public void setup() {
+	public void before() {
+
+	}
+
+	@After
+	public void after() {
 		eventRepository.deleteAll();
 	}
 
