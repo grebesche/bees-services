@@ -1,6 +1,7 @@
 package com.guillaume.comments;
 
 import com.guillaume.comments.db.Comment;
+import com.guillaume.comments.db.Reply;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,7 +55,7 @@ public class CommentsApplicationTests {
 		comment.setText("My comment");
 		comment.setDateTime(new Date());
 
-		Comment reply = new Comment();
+		Reply reply = new Reply();
 		reply.setText("My reply");
 		reply.setDateTime(new Date());
 
@@ -74,7 +75,7 @@ public class CommentsApplicationTests {
 		comment.setText(commentText);
 		comment.setDateTime(commentTime);
 
-		Comment reply = new Comment();
+		Reply reply = new Reply();
 		reply.setText(replyText);
 		reply.setDateTime(replyTime);
 
@@ -87,7 +88,7 @@ public class CommentsApplicationTests {
 		Assert.assertEquals(commentText, loadedComment.getText());
 		Assert.assertEquals(commentTime, loadedComment.getDateTime());
 		Assert.assertEquals(1, loadedComment.getReplies().size());
-		Comment loadedReply = loadedComment.getReplies().iterator().next();
+		Reply loadedReply = loadedComment.getReplies().iterator().next();
 		Assert.assertEquals(replyText, loadedReply.getText());
 		Assert.assertEquals(replyTime, loadedReply.getDateTime());
 	}
